@@ -13,19 +13,21 @@ public class MonitorHDD extends JFrame {
 
     public MonitorHDD() {
 
+        // window settings
         setPreferredSize(new Dimension(400, 200));
         setTitle("System Monitor - HDD");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
+        // declaring elements
         JLabel message  = new JLabel("Select disk:");
         final JLabel freeSpace = new JLabel(" ");
         final JLabel totalSpace = new JLabel(" ");
         final JLabel percentUsableSpace = new JLabel("Percent usable space:");
-
         JButton update = new JButton("Update");
         JButton back = new JButton("Back");
 
+        // view percent usable space selected HDD
         final JProgressBar barPercetUsableSpace = new JProgressBar();
         barPercetUsableSpace.setStringPainted(true);
         barPercetUsableSpace.setMinimum(0);
@@ -33,6 +35,7 @@ public class MonitorHDD extends JFrame {
         barPercetUsableSpace.setValue((int)ServiceHDD.getPercentUsableSpace());
         barPercetUsableSpace.setForeground(barColor);
 
+        // information output
         ActionListener actionListener = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JComboBox box = (JComboBox)e.getSource();
@@ -44,11 +47,13 @@ public class MonitorHDD extends JFrame {
             }
         };
 
+        // disk selection
         ServiceHDD.getListHDD();
         JComboBox listHDD = new JComboBox(ServiceHDD.getListHDD());
         listHDD.setEditable(false);
         listHDD.addActionListener(actionListener);
 
+        // deployment of elements
         Container c = this.getContentPane();
         c.setLayout(new GridLayout(4,1,1,2));
         c.add(message);
@@ -61,21 +66,18 @@ public class MonitorHDD extends JFrame {
         c.add(back);
     }
 
-    public static void main(String[] args) {
-        MonitorHDD app = new MonitorHDD();
-        app.setVisible(true);
-        app.pack();
-    }
-
-    /**
-     * Если % от 0 до 10, то выводить зеленым
-     если % более 10, но не более 70, то синим
-     если % более 70, то красным
-     */
+    // color definition
     public Color setColor(double percent){
         if (percent < 10){barColor = new Color(0,255,0);} else
         if (percent > 10 & percent < 70){barColor = new Color(0,0,255);} else
         if (percent > 70){barColor = new Color(255,0,0);}
         return barColor;
+    }
+
+    // start app
+    public static void main(String[] args) {
+        MonitorHDD app = new MonitorHDD();
+        app.setVisible(true);
+        app.pack();
     }
 }
