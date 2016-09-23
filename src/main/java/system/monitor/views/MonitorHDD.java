@@ -24,8 +24,8 @@ public class MonitorHDD extends JFrame {
         final JLabel freeSpace = new JLabel(" ");
         final JLabel totalSpace = new JLabel(" ");
         final JLabel percentUsableSpace = new JLabel("Percent usable space:");
-        JButton update = new JButton("Update");
-        JButton back = new JButton("Back");
+        JButton update = new JButton("update");
+        JButton back = new JButton("back");
 
         // view percent usable space selected HDD
         final JProgressBar barPercetUsableSpace = new JProgressBar();
