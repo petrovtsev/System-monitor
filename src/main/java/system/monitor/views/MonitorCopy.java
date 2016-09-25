@@ -21,26 +21,25 @@ public class MonitorCopy extends JFrame {
 
     public MonitorCopy() {
 
+        // window settings
         setPreferredSize(new Dimension(400, 250));
         setTitle("System Monitor - check copy");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
 
-        final JLabel dir  = new JLabel(" ");
+        // declaring elements
         JLabel messageName = new JLabel("Enter the name or file mask:");
-        final JLabel name = new JLabel(" ");
         JLabel messageDisk = new JLabel("Select disk:");
-
         JTextField textField = new JFormattedTextField();
         textField.setText(maskName);
-
+        final JLabel dir  = new JLabel(" ");
         final JLabel pathSelectedDIR  = new JLabel(" ");
         final JLabel checkMessage = new JLabel(" ");
         final JLabel totalAmountFiles = new JLabel(" ");
         final JLabel freeSopeSelectedDisk = new JLabel(" ");
-
         JButton back = new JButton("Back");
 
+        //
         ActionListener actionListener = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JComboBox box = (JComboBox)e.getSource();

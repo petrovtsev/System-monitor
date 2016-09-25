@@ -20,10 +20,10 @@ public class MonitorHDD extends JFrame {
         setResizable(false);
 
         // declaring elements
-        JLabel message  = new JLabel("Select disk:");
         final JLabel freeSpace = new JLabel(" ");
         final JLabel totalSpace = new JLabel(" ");
-        final JLabel percentUsableSpace = new JLabel("Percent usable space:");
+        JLabel percentUsableSpace = new JLabel("Percent usable space:");
+        JLabel message  = new JLabel("Select disk:");
         JButton update = new JButton("update");
         JButton back = new JButton("back");
 
